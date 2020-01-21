@@ -54,5 +54,5 @@ plt.show()
 data.close()
 
   
-print("tiempo de ejecucion",tiempo_total)           #imprimime el timepo de ejecucion de la toma de datos 
-print("promedio por dato", tiempo_total/N_muestras) #imprimime el timepo promedio por dato
+print("tiempo de ejecucion",tiempo_total)           #imprimime el tiempo de ejecucion de la toma de datos 
+print("promedio por dato", tiempo_total/N_muestras) #imprimime el tiempo promedio por dato
