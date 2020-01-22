@@ -1,0 +1,57 @@
+/*la mejor opcion es directamente al driver donde encontraras ademas las libreiras*/
+/******************************************************************************/
+/* main.c -- Example program using the PmodAD5 IP                            */
+/******************************************************************************/
+/* Author: Jon Peyron                                                         */
+/************ Include Files ************/
+#include "PmodAD5.h"
+#include "sleep.h"
+#include "xil_cache.h"
+#include <stdio.h>
+#include "xparameters.h"
+void DemoInitialize();
+void DemoRun();
+void DemoCleanup();
+void EnableCaches();
+void DisableCaches();
+/************ Global Variables ************/
+PmodAD5 myDevice;
+/************ Function Definitions ************/
+int main(void) {
+   DemoInitialize();
+   DemoRun();
+   DemoCleanup();
+   return 0;}
+void DemoInitialize() {
+   EnableCaches();
+   AD5_begin(&myDevice, XPAR_PMODAD5_0_AXI_LITE_SPI_BASEADDR);}
+void DemoRun() {
+   xil_printf("starting...\n\r");
+   AD5_WriteConfig(&myDevice);
+   xil_printf("AD5 configurado \n \r");
+   while (1) {
+      float voltage= 0;
+      AD5_readData(&myDevice);
+      voltage = AD5_DataToVoltage(&myDevice);
+      printf("%lf\n\r", voltage); // format text for display}}
+void DemoCleanup() {
+   AD5_end(&myDevice);
+   DisableCaches();}
+void EnableCaches() {
+#ifdef __MICROBLAZE__
+#ifdef XPAR_MICROBLAZE_USE_DCACHE
+   Xil_DCacheEnable();
+#endif
+#ifdef XPAR_MICROBLAZE_USE_ICACHE
+   Xil_ICacheEnable();
+#endif
+#endif}
+void DisableCaches() {
+#ifdef __MICROBLAZE__
+#ifdef XPAR_MICROBLAZE_USE_DCACHE
+   Xil_DCacheDisable();
+#endif
+#ifdef XPAR_MICROBLAZE_USE_ICACHE
+   Xil_ICacheDisable();
+#endif
+#endif}
