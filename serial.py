@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 #el codigo puede presentar un error al correr, relacionado con la conversion de string a float
 #para solucionarlo solo correr el progrmaa de nuevo. 
+#autor: Gonzalo Burgos 
+# CePIA, udec
+#Consultas a Gonza2486@gmail.com 
 
 
 import serial                         #libreria para comunicacion serial 
