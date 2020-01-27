@@ -1,8 +1,23 @@
-/*la mejor opcion es directamente al driver donde encontraras ademas las libreiras*/
 /******************************************************************************/
+/*                                                                            */
 /* main.c -- Example program using the PmodAD5 IP                            */
+/*                                                                            */
 /******************************************************************************/
 /* Author: Jon Peyron                                                         */
+/*                                                                            */
+/******************************************************************************/
+/* File Description:                                                          */
+/*                                                                            */
+/* This demo continuously reads analog data from the PmodAD5 converts it into */
+/* digital data. Then it converts the digital data into voltage and prints    */
+/* the value through uart to a serial terminal                                */
+/*                                                                            */
+/******************************************************************************/
+/* Revision History:                                                          */
+/*                                                                            */
+/*    12/19/17(JPEYRON):  Created                                             */
+/*                                                                            */
+/******************************************************************************/
 /************ Include Files ************/
 #include "PmodAD5.h"
 #include "sleep.h"
