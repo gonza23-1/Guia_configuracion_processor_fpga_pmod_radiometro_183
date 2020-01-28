@@ -1,6 +1,12 @@
 # -*- coding: utf-8 -*-
 #el codigo puede presentar un error al correr, relacionado con la conversion de string a float
 #para solucionarlo solo correr el progrmaa de nuevo. 
+#otros de los probelmas que puede presentar son; 
+#1.- Problema al cargar el paquete serial. En particular esto sucede usando anaconda en window10
+#2.- Problemas con la conexion serial, esta depende netamente del puerto y el ritmo de envio de datos (baud rate)
+#   el problema que se presenta aqui, se debe a que al correr el codigo nuevamente se trata de crear 2 veces la misma conexion
+#   para evitar eso es necesario luego de la primera ejecucion descomentar #data.close() ya que esto corta la comunicacion 
+#   con el puerto y permitiendo volver a crearla en cualquier momento. 
 #autor: Gonzalo Burgos 
 # CePIA, udec
 #Consultas a Gonza2486@gmail.com 
